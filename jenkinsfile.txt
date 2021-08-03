@@ -1,0 +1,62 @@
+pipeline{
+    
+    agent any
+    
+    stages{
+        
+        stage('A')
+        {
+            steps
+            {
+                echo 'Hello Jenkins '
+                
+            }
+            
+           
+            
+        }
+        stage('B')
+        {
+             steps{
+                retry(5)
+                {
+                    bat 'dir/d'
+                }
+                
+            }
+        }
+        
+        
+    }
+    
+    post{
+        
+        success {
+            echo 'This is from Success scetion'
+        }
+        
+        failure{
+            
+            echo 'this is from Failure Section'
+        }
+        
+        unstable{
+            echo 'This is from unstable Section'
+        }
+        
+        changed
+        {
+            echo 'This is from changed section'
+        }
+        
+        always
+        {
+            echo 'this is from always section'
+        }
+        
+    }
+    
+    
+    
+    
+}
