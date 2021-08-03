@@ -26,6 +26,16 @@ pipeline{
             }
         }
         
+          stage('c')
+        {
+             steps{
+                retry(5)
+                {
+                    bat 'dir /b'
+                }
+                
+            }
+        }
         
     }
     
