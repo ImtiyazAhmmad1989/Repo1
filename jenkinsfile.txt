@@ -3,6 +3,7 @@ pipeline{
     agent {
     label 'node1'
     }
+    //dd
     
     stages{
         
